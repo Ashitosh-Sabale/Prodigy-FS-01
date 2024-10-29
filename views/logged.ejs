@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #2d004d, #3e0066, #5a189a, #6a0dad, #8a2be2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      position: relative;
+    }
+
+    .coming-soon {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ff6a00, #fd05b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 3s infinite alternate;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+
+    .logged-in-message {
+      font-size: 2rem;
+      margin-top: 20px;
+      color: #b2ff59;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Star and shooting star animations */
+    .star, .shooting-star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+
+    /* Twinkling star effect */
+    .star {
+      width: 2px;
+      height: 2px;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* Shooting star effect */
+    .shooting-star {
+      width: 2px;
+      height: 2px;
+      background: linear-gradient(white, transparent);
+      animation: shoot 3s ease-in-out infinite;
+      transform: rotate(45deg);
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-500px, 500px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Twinkling stars -->
+  <script>
+    // Add twinkling stars to the background
+    function createStars() {
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        document.body.appendChild(star);
+      }
+    }
+
+    // Add shooting stars to the background
+    function createShootingStars() {
+      for (let i = 0; i < 5; i++) {
+        const shootingStar = document.createElement('div');
+        shootingStar.classList.add('shooting-star');
+        shootingStar.style.top = `${Math.random() * 100}vh`;
+        shootingStar.style.left = `${Math.random() * 100}vw`;
+        shootingStar.style.animationDelay = `${Math.random() * 5}s`;
+        document.body.appendChild(shootingStar);
+      }
+    }
+
+    createStars();
+    createShootingStars();
+  </script>
+
+  <div class="coming-soon">
+    <h1>Coming Soon</h1>
+    <p>We're working on something amazing!</p>
+    <div class="logged-in-message">You are logged in!</div>
+  </div>
+</body>
+</html>
